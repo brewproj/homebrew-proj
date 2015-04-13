@@ -1,0 +1,23 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/brew-proj.rb'
+    - 'developer/**/*'
+    - 'vendor/**/*'
+    - 'lib/**/*'
+    - 'spec/**/*'
+    - 'test/**/*'
+
+Metrics/LineLength:
+  Exclude:
+    - Projects/**/*
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+Style/FileName:
+  Exclude:
+    - Projects/**/*
