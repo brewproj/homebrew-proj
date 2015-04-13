@@ -1,0 +1,1 @@
+module Hbp::Utils; end
