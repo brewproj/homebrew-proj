@@ -47,6 +47,12 @@ HOMEBREW_CACHE.join('Projects').mkpath
 # must be called after testing_env so at_exit hooks are in proper order
 require 'minitest/autorun'
 # todo, re-enable minitest-colorize, broken under current test environment for unknown reasons
+require "minitest/reporters"
+if (reporter = ENV['MINITEST_REPORTER']) != nil
+  Minitest::Reporters.use! Minitest::Reporters.const_get(reporter + 'Reporter').new
+else
+  Minitest::Reporters.use!
+end
 # require 'minitest-colorize'
 
 # Force mocha to patch MiniTest since we have both loaded thanks to homebrew's testing_env

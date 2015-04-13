@@ -53,7 +53,7 @@ class Hbp::SystemCommand
 
   def self._assert_success(status, command, output)
     unless status and status.success?
-      raise Hbp::CaskCommandFailedError.new(command.utf8_inspect, output, status)
+      raise Hbp::ProjectCommandFailedError.new(command.utf8_inspect, output, status)
     end
   end
 end
@@ -95,14 +95,14 @@ class Hbp::SystemCommand::Result
 
   def self._parse_plist(command, output)
     begin
-      raise Hbp::CaskError.new("Empty plist input") unless output =~ %r{\S}
+      raise Hbp::ProjectError.new("Empty plist input") unless output =~ %r{\S}
       output.sub!(%r{\A(.*?)(<\?\s*xml)}m, '\2')
       _warn_plist_garbage(command, $1) if Hbp.debug
       output.sub!(%r{(<\s*/\s*plist\s*>)(.*?)\Z}m, '\1')
       _warn_plist_garbage(command, $2)
       xml = Plist::parse_xml(output)
       unless xml.respond_to?(:keys) and xml.keys.size > 0
-        raise Hbp::CaskError.new(<<-ERRMSG)
+        raise Hbp::ProjectError.new(<<-ERRMSG)
 Empty result parsing plist output from command.
   command was:
   #{command.utf8_inspect}
@@ -112,7 +112,7 @@ Empty result parsing plist output from command.
       end
       xml
     rescue Plist::ParseError => e
-      raise Hbp::CaskError.new(<<-ERRMSG)
+      raise Hbp::ProjectError.new(<<-ERRMSG)
 Error parsing plist output from command.
   command was:
   #{command.utf8_inspect}

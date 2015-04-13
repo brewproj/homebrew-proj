@@ -10,6 +10,7 @@ describe "Syntax check" do
       interpreter = Pathname.new(Dir["#{ENV['HOME']}/.rvm/rubies/ruby-#{major_version}*/bin/ruby"].first.to_s) unless interpreter.exist?
       interpreter = Pathname.new(Dir["/usr/local/bin/ruby{-,}#{major_version}*"].first.to_s)                   unless interpreter.exist?
       interpreter = Pathname.new(Dir["/opt/local/bin/ruby{-,}#{major_version}*"].first.to_s)                   unless interpreter.exist?
+      interpreter = Pathname.new(Dir["/opt/boxen/rbenv/versions/#{major_version}*/bin/ruby"].first.to_s)       unless interpreter.exist?
       flags = %w{-c}
       flags.unshift '--disable-all'
       backend_files.each do |file|

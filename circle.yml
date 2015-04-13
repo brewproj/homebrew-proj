@@ -2,3 +2,9 @@ machine:
   timezone: UTC
   ruby:
     version: 2.0.0-p481
+  environment:
+    SPEC_OPTS: "--format documentation"
+    MINITEST_REPORTER: Spec
+test:
+  override:
+    - bundle exec rake test

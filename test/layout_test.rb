@@ -23,6 +23,7 @@ describe "Repo layout" do
   # the developer has hopefully gitignored these
   IGNORE_REGEXPS = [
                     %r{~$},      # emacs
+                    %r{\..*\.swp}
                    ]
 
   TOPLEVEL_DIRS = %w{
