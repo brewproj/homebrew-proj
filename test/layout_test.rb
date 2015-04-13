@@ -16,6 +16,7 @@ describe "Repo layout" do
                     .bundle
                     .ruby-version
                     .rubocop_todo.yml
+                    .keep
                     coverage
                    }
 
@@ -50,6 +51,8 @@ describe "Repo layout" do
                       Rakefile
                       USAGE.md
                       brew-project.rb
+                      circle.yml
+                      vendor
                      }
 
   describe "toplevel dir" do
@@ -79,7 +82,7 @@ describe "Repo layout" do
         entries.reject! { |elt| elt.match(regexp) }
       end
       entries.reject! { |elt| elt.match(%r{\.rb$}) }
-      entries.must_equal ['.keep']
+      entries.must_equal []
     end
   end
 end
