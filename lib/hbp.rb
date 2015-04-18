@@ -3,14 +3,22 @@ HOMEBREW_CACHE_PROJECTS = HOMEBREW_CACHE.join('Projects')
 module Hbp; end
 
 require 'hbp/extend'
+
+require 'hbp/audit'
+require 'hbp/download'
+require 'hbp/download_strategy'
 require 'hbp/exceptions'
 require 'hbp/locations'
 require 'hbp/options'
 require 'hbp/project'
+require 'hbp/qualified_token'
 require 'hbp/scopes'
+require 'hbp/source'
 require 'hbp/system_command'
 require 'hbp/utils'
 require 'hbp/version'
+require 'hbp/url'
+require 'hbp/without_source'
 
 require 'vendor/plist'
 

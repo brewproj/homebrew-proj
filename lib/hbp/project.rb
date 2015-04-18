@@ -87,18 +87,9 @@ class Hbp::Project
        :full_name,
        :homepage,
        :url,
-       :appcast,
        :version,
-       :license,
        :tags,
-       :sha256,
-       :artifacts,
-       :caveats,
-       :depends_on,
-       :conflicts_with,
-       :container,
-       :gpg,
-       :accessibility_access,
+       :depends_on
       ].each do |method|
         printable_method = method.to_s
         printable_method = "name" if printable_method == "full_name"
