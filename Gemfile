@@ -16,4 +16,8 @@ group :test do
   gem 'mocha', '1.1.0', :require => false
   gem 'rake'
   gem 'rspec', '~> 3.0.0'
+  gem 'guard'
+  gem 'guard-rubocop'
+  gem 'guard-rspec'
+  gem 'guard-minitest'
 end

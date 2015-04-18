@@ -18,6 +18,8 @@ describe "Repo layout" do
                     .rubocop_todo.yml
                     .keep
                     coverage
+                    tmp
+                    Guardfile
                    }
 
   # the developer has hopefully gitignored these

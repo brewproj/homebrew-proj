@@ -1,4 +1,5 @@
 require 'coveralls'
+require 'rspec'
 
 Coveralls.wear_merged!
 
